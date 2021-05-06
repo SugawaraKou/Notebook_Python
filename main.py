@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import Menu, filedialog
 from tkinter import ttk
+import tkinter as tk
 
 
 def open_file():
@@ -9,10 +10,10 @@ def open_file():
     if not Ofile:
         return
 
-    text_edit.delete("1.0", ttk.END)
+    text_edit.delete("1.0", tk.END)
     with open(Ofile, "r") as input_file:
         text = input_file.read()
-        text_edit.insert(ttk.END, text)
+        text_edit.insert(tk.END, text)
     window.title(f"Simple Text Editor - {Ofile}")
 
 
@@ -29,7 +30,7 @@ def save_as_file():
         return
 
     with open(Sfile, "w") as output_file:
-        text = text_edit.get("1.0", ttk.END)
+        text = text_edit.get("1.0", tk.END)
         output_file.write(text)
     window.title(f"Simple Text Editor - {Sfile}")
 
