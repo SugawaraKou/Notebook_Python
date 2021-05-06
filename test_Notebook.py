@@ -34,18 +34,17 @@ def save_as_file():
     window.title(f"Simple Text Editor - {Sfile}")
 
 
+
 window = Tk()
 #window.geometry("800x600")
 window.title("Notebook")
 
-"""
 #Notebook
 tab_control = ttk.Notebook(window)
 tab1 = ttk.Frame(tab_control)
 
 tab_control.add(tab1, text="untitled")
 tab_control.pack(expand=1, fill="both")
-"""
 
 # Menu
 menu = Menu()
