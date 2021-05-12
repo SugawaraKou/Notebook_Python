@@ -26,7 +26,7 @@ def save_file():
 
 def save_as_file():
     Sfile = filedialog.asksaveasfilename(
-
+        defaultextension=".txt",
         filetypes=(("Text", "*.txt", "TEXT"), ("all file", "*.*"))
     )
 
