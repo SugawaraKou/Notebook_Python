@@ -1,6 +1,5 @@
 from tkinter import *
 from tkinter import Menu, filedialog, messagebox
-import tkinter as tk
 from tkinter.ttk import Combobox
 import tkinter.font as tkFont
 
@@ -12,10 +11,10 @@ def open_file():
         messagebox.showerror("Error", "Error Open File")
         return
 
-    text_edit.delete("1.0", tk.END)
+    text_edit.delete("1.0", END)
     with open(Ofile, "r") as input_file:
         text = input_file.read()
-        text_edit.insert(tk.END, text)
+        text_edit.insert(END, text)
     window.title(Ofile)
 
 
@@ -35,7 +34,7 @@ def save_as_file():
         return
 
     with open(Sfile, "w") as output_file:
-        text = text_edit.get("1.0", tk.END)
+        text = text_edit.get("1.0", END)
         output_file.write(text)
     window.title(Sfile)
 
@@ -91,7 +90,7 @@ def settings():
 
 
 window = Tk()
-window.geometry("600x400")
+#window.geometry("800x600")
 window.title("Notebook")
 
 """
@@ -109,15 +108,15 @@ new_item = Menu(menu, tearoff=0)
 
 new_item.add_command(label="Open file", command=open_file)
 new_item.add_command(label="Save file", command=save_file)
-new_item.add_command(label="Save as file", command=save_as_file)
+new_item.add_command(label="Save as", command=save_as_file)
 new_item.add_command(label="Settings", command=settings)
 new_item.add_command(label="Exit", command=exit)
 
 menu.add_cascade(label="File", menu=new_item)
 window.config(menu=menu)
-
 # Text
 text_edit = Text(bg="black", fg="white")
-text_edit.pack()
+# text_edit.pack(fill="both")
+text_edit.pack(expand=True, fill='both')
 
 window.mainloop()
