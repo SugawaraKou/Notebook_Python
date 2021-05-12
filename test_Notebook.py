@@ -9,11 +9,12 @@ def open_file():
     if not Ofile:
         return
 
-    text_edit.delete("1.0", ttk.END)
+    text_edit.delete("1.0", END)
     with open(Ofile, "r") as input_file:
         text = input_file.read()
-        text_edit.insert(ttk.END, text)
-    window.title(f"Simple Text Editor - {Ofile}")
+        text_edit.insert(END, text)
+    tab_control.add(ttk.Frame(tab_control), text=Ofile)
+    tab_control.title(f"Simple Text Editor - {Ofile}")
 
 
 def save_file():
@@ -29,7 +30,7 @@ def save_as_file():
         return
 
     with open(Sfile, "w") as output_file:
-        text = text_edit.get("1.0", ttk.END)
+        text = text_edit.get("1.0", END)
         output_file.write(text)
     window.title(f"Simple Text Editor - {Sfile}")
 
@@ -41,9 +42,8 @@ window.title("Notebook")
 
 #Notebook
 tab_control = ttk.Notebook(window)
-tab1 = ttk.Frame(tab_control)
 
-tab_control.add(tab1, text="untitled")
+tab_control.add(ttk.Frame(tab_control), text="untitled")
 tab_control.pack(expand=1, fill="both")
 
 # Menu
